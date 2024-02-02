@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome</h2>
+    <div class="app">
+        <input type="text" id="input" placeholder="Type something here...">
+        <p id="input-value"></p>
+        <button id="btn">MIRROR</button>
+        <p id="mirror-value"></p>
+    </div>
+    <script>
+        const input = document.getElementById("input");
+        const btn = document.getElementById("btn");
+        const inputValue = document.getElementById("input-value");
+        const mirrorValue=document.getElementById("mirror-value");
+        input.addEventListener("keyup",(e) => {
+            inputValue.innerText=input.value;
+        });
+
+        btn.addEventListener("click", (e) => {
+            if(input.value.length > 0) {
+                mirrorValue.innerText=input.value.split("").reverse().join("");
+            } else {
+                mirrorValue.innerText="";
+            }
+        });
+    </script>
+</body>
+</html>

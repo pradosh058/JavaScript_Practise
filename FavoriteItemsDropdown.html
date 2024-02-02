@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Welcome</h2>
+    <div class="app">
+        <select id="select-brand">
+            <option value="">--Select an Option--</option>
+        </select>
+        <button id="btn">ADD TO FAV</button>
+        <ul id="show-fav"></ul>
+    </div>
+    <script>
+        let brands = ["Nike", "Adidas", "Puma", "Fila", "All Star"];
+        let selectBrand = document.getElementById("select-brand");
+        let showBrand = document.getElementById("show-fav");
+        let btn = document.getElementById("btn");
+        let favoriteBrand = []
+        
+        for(let brand of brands) {
+            let optE =  document.createElement("option");
+            optE.setAttribute("value",brand);
+            optE.innerText = brand;
+            selectBrand.appendChild(optE);
+        }
+        selectBrand.addEventListener("change",(e) => {
+            btn.addEventListener("click",(e) => {
+                let brand=selectBrand.value;
+                let isBrandAdd = favoriteBrand?.some(
+                    (favourite) => favourite === brand
+                );
+                favoriteBrand = !isBrandAdd ? [...favoriteBrand,brand] : favoriteBrand;
+                displaySelectBrands(favoriteBrand)
+            })
+        });
+        
+        function displaySelectBrands(favoriteBrand) {
+            showBrand.innerHTML="";
+            for(let fav of favoriteBrand){
+                let list=document.createElement("li");
+                list.innerText = fav;
+                showBrand.appendChild(list);
+            }
+        }
+    </script>
+</body>
+</html>

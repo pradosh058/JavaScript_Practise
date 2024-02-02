@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Welcome</h2>
+    <p id="para">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure magni aut harum temporibus maiores, neque
+        voluptatibus praesentium incidunt sit accusamus itaque quidem dicta pariatur quas soluta ducimus nobis totam
+        mollitia!
+    </p>
+    <script>
+        let para = document.getElementById("para");
+        para.innerHTML = para.innerText.split(" ").map((word) => word.length>5 ? `<span style="background-color:green; color:white">${word}</span>` : word).join(" ");
+    </script>
+</body>
+
+</html>

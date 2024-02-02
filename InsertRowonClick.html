@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table,
+        td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome</h2>
+    <table id="table">
+        <tr>
+            <td>Row1 Cell1</td>
+            <td>Row1 Cell2</td>
+            <td>Row1 Cell3</td>
+        </tr>
+        <tr>
+            <td>Row2 Cell1</td>
+            <td>Row2 Cell2</td>
+            <td>Row2 Cell3</td>
+        </tr>
+    </table>
+    <button id="btn">INSERT</button>
+    <script>
+        let table = document.getElementById("table");
+        let btn = document.getElementById("btn");
+
+        btn.addEventListener("click",(e) => {
+            let row = table.insertRow(0);
+            for(let i=0;i<3;i++){
+                let x = row.insertCell(i);
+                x.innerText = `New Cell${i+1}`;
+            }
+        })
+    </script>
+</body>
+</html>

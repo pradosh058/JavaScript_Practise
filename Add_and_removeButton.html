@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <h2>Welcome</h2>
+    <div id="app"></div>
+    <script>
+        let products = [
+          {
+            id: "1",
+            item: "Shirt"
+          },
+          {
+            id: "2",
+            item: "Jeans"
+          },
+          {
+            id: "3",
+            item: "T-shirt"
+          },
+          {
+            id: "4",
+            item: "Denim Jacket"
+          },
+          {
+            id: "5",
+            item: "Casual Shoes"
+          }
+        ];
+        
+        let appContainer = document.getElementById("app");
+        
+        function showProducts(products) {
+          for (let product of products) {
+            let container = document.createElement("div");
+            let label = document.createElement("span");
+            label.innerText = product.item;
+        
+            let button = document.createElement("button");
+            button.setAttribute("data-id", product.id);
+            button.innerText = "Remove";
+        
+            container.appendChild(label);
+            container.appendChild(button);
+            appContainer.appendChild(container);
+          }
+        }
+        showProducts(products);
+        appContainer.addEventListener("click", (event) => {
+            let itemId = event.target.dataset.id;
+            products = products.filter((product) => product.id !== itemId);
+            appContainer.innerHTML = "";
+            showProducts(products);
+        });
+        
+    </script>
+</body>
+
+</html>
